@@ -1,6 +1,7 @@
 import "./Calculator.css";
 import Display from "./Display";
 import ButtonContainer from "./ButtonContainer";
+import HistoryContainer from "./HistoryContainer";
 import { useEffect, useState } from "react";
 import * as math from "mathjs";
 
@@ -51,6 +52,9 @@ export default function Calculator() {
     <div className="calculator">
       <Display input={input} result={result} />
       <ButtonContainer handleClick={handleClick} />
+      {history.map((el, i) => (
+        <HistoryContainer key={i} input={el.input} result={el.result} />
+      ))}
     </div>
   );
 }
