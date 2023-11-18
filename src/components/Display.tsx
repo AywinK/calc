@@ -8,7 +8,7 @@ interface Props {
 export default function Display({ input, result }: Props) {
   return (
     <div className="display">
-      <input className="userInput" value={input} type="text" readOnly />
+      <input id="userInput" className="userInput" value={input} type="text" readOnly />
       <div className="result">{result}</div>
     </div>
   );
