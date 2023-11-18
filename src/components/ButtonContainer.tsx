@@ -1,7 +1,7 @@
 import Button from "./Button";
 import "./ButtonContainer.css";
 
-export default function ButtonContainer() {
+export default function ButtonContainer({ handleClick }) {
   const btnsArr = [];
 
   for (let i = 0; i < 10; i++) {
@@ -12,17 +12,17 @@ export default function ButtonContainer() {
     <div className="button-container">
       <div className="numbers-container">
         {btnsArr.reverse().map((btnVal, i) => (
-          <Button key={i} value={btnVal} />
+          <Button clickHandler={handleClick} key={i} value={btnVal} />
         ))}
       </div>
       <div className="operations-container">
-        <Button value={"Clear"} />
-        <Button value={"+"} />
-        <Button value={"-"} />
-        <Button value={"/"} />
-        <Button value={"*"} />
-        <Button value={"."} />
-        <Button value={"="} />
+        <Button clickHandler={handleClick} value={"Clear"} />
+        <Button clickHandler={handleClick} value={"+"} />
+        <Button clickHandler={handleClick} value={"-"} />
+        <Button clickHandler={handleClick} value={"/"} />
+        <Button clickHandler={handleClick} value={"*"} />
+        <Button clickHandler={handleClick} value={"."} />
+        <Button clickHandler={handleClick} value={"="} />
       </div>
     </div>
   );

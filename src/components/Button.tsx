@@ -1,11 +1,12 @@
 import "./Button.css";
 interface Props {
   value: string | number;
+  clickHandler: (e: object) => object;
 }
 
-export default function Button({ value }: Props) {
+export default function Button({ value, clickHandler }: Props) {
   return (
-    <button className="button" value={value}>
+    <button className="button" onClick={clickHandler} value={value}>
       {value}
     </button>
   );
