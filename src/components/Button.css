@@ -1,0 +1,5 @@
+.button {
+  flex: 1 0 28%;
+  background-color: rgb(78, 34, 140);
+  font-size: 1.1em;
+}

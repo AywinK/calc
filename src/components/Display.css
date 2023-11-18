@@ -1,0 +1,25 @@
+.display {
+  min-width: 300px;
+  max-width: 500px;
+  border: 0.1rem solid red;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  > * {
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: end;
+    font-size: 20px;
+    border: 0.1rem solid red;
+  }
+}
+
+.userInput {
+  padding: 10px;
+  font-family: monospace;
+  color: #333444;
+  background-color: rgb(29, 191, 29);
+  min-height: 5ch;
+  border-radius: 24px;
+}

@@ -1,0 +1,12 @@
+
+.calculator {
+    min-width: 300px;
+    max-width: 500px;
+    padding: 10px;
+    border: 0.1rem solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
