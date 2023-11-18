@@ -4,5 +4,9 @@ interface Props {
 }
 
 export default function Button({ value }: Props) {
-  return <button className="button">{value}</button>;
+  return (
+    <button className="button" value={value}>
+      {value}
+    </button>
+  );
 }

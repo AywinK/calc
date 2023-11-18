@@ -11,8 +11,8 @@ export default function ButtonContainer() {
   return (
     <div className="button-container">
       <div className="numbers-container">
-        {btnsArr.reverse().map((btnVal) => (
-          <Button value={btnVal} />
+        {btnsArr.reverse().map((btnVal, i) => (
+          <Button key={i} value={btnVal} />
         ))}
       </div>
       <div className="operations-container">
