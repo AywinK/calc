@@ -4,9 +4,16 @@ interface Props {
   clickHandler: (e: object) => object;
 }
 
-export default function Button({ value, clickHandler }: Props) {
+export default function Button({
+  value,
+  clickHandler,
+}: Props) {
   return (
-    <button className="button" onClick={clickHandler} value={value}>
+    <button
+      className="button"
+      onClick={clickHandler}
+      value={value}
+    >
       {value}
     </button>
   );

@@ -16,10 +16,11 @@ export default function Calculator() {
   const [history, setHistory] = useState<HistoryObject[]>([]);
   const [isCleared, setIsCleared] = useState(false);
 
-  const handleClick = (e: any): void => {
+  const handleClick = (e: HTMLElementEventMap): void => {
     console.log(e.target.value);
     const isClear = e.target.value === "Clear";
-    const isToBeEvaluated = e.target.value === "=";
+    const isToBeEvaluated =
+      e.target.value === "=" || e.target.value === "Enter";
     if (isClear) {
       setIsCleared(true);
     } else if (isToBeEvaluated) {
@@ -31,6 +32,20 @@ export default function Calculator() {
       setInput((prevState) => prevState + e.target.value);
     }
   };
+
+  const handleKeyPress = (e: HTMLElementEventMap): void => {
+    const key = e.key;
+    if (/\d/g.test(key) || /(\+|-|\/|\*)/g.test(key) || key === "Enter") {
+      handleClick({ target: { value: key } });
+    }
+    console.log(key);
+  };
+
+  useEffect(() => {
+    window.addEventListener("keypress", handleKeyPress);
+
+    return () => window.removeEventListener("keypress", handleKeyPress);
+  });
 
   useEffect(() => {
     if (isCleared && input !== "" && result !== 0) {
@@ -51,7 +66,10 @@ export default function Calculator() {
   return (
     <div className="calculator">
       <Display input={input} result={result} />
-      <ButtonContainer handleClick={handleClick} />
+      <ButtonContainer
+        handleKeyPress={handleKeyPress}
+        handleClick={handleClick}
+      />
       {history.map((el, i) => (
         <HistoryContainer key={i} input={el.input} result={el.result} />
       ))}
